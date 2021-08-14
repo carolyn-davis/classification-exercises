@@ -35,7 +35,7 @@ sorted(iris_df)
 #['Petal.Length', 'Petal.Width', 'Sepal.Length', 'Sepal.Width', 'Species']
 
 #print the data type of each column
-# iris_df.dtypes
+iris_df.dtypes
 # Sepal.Length    float64
 # Sepal.Width     float64
 # Petal.Length    float64
@@ -76,7 +76,31 @@ telco_data = data_loading(file_path, file_name)
 cust_data = telco_data.copy()
 
 
-df_excel = cust_data.drop(cust_data.index[101:], inplace=True)
+cust_data.drop(cust_data.index[101:], inplace=True)
 
 cust_data.iloc[:]
+
+
+#print the number of rows of your original dataframe
+telco_data.shape
+#(7032, 12)
+
+#print the first 5 column names
+sorted(telco_data)
+# ['churn',
+#  'contract_type',
+#  'customer_id',
+#  'dependents',
+#  'gender',
+#  'internet_service',
+#  'is_senior_citizen',
+#  'monthly_charges',
+#  'partner',
+#  'payment_type',
+#  'phone_service',
+#  'total_charges']
+
+
+#print the column names that have a data type of object
+telco_data.dtypes(object)
 
