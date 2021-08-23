@@ -294,6 +294,16 @@ subset2 = paws_df[paws_df.model2 == 'dog']
 subset3 = paws_df[paws_df.model3 == 'dog']
 subset4 = paws_df[paws_df.model4 == 'dog']
 
+
+# =============================================================================
+# b.)Suppose you are working on a team that solely deals with dog pictures.
+#     Which of these models would you recomend for Phase I? For Phase II?
+# =============================================================================
+
+
+
+
+
 ###LETS looks at the models for Precision:
     
 (subset1.actual == subset1.model1).mean()   #Model 1 Precision 
@@ -309,13 +319,14 @@ subset4 = paws_df[paws_df.model4 == 'dog']
 #out:0.7312485304490948
 
 #confusion matrix 
-pd.crosstab(paws_df.model1)
+pd.crosstab(paws_df.model2, paws_df.actual)
+#output:
+# actual   cat   dog
+# model2            
+# cat     1555  1657
+# dog      191  1597
+#Model 2 has the highest precision of the four models tested
 
-
-# =============================================================================
-# b.)Suppose you are working on a team that solely deals with dog pictures.
-#     Which of these models would you recomend for Phase I? For Phase II?
-# =============================================================================
 
 
 
@@ -326,6 +337,36 @@ pd.crosstab(paws_df.model1)
 # c.)Suppose you are working on a team that solely deals with cat pictures.
 #     Which of these models would you recomend for Phase I? For Phase II?
 # =============================================================================
+#cats= positive class
+
+from sklearn.metrics import classification_report
+
+x = classification_report(paws_df.actual, paws_df.model1, labels = ['cat', 'dog'], output_dict=True)
+
+pd.DataFrame(x).T
+
+
+                #Model 1
+pd.DataFrame(classification_report(paws_df.actual, paws_df.model1, labels = ['cat', 'dog'], output_dict=True))
+
+
+
+                #Model 2
+pd.DataFrame(classification_report(paws_df.actual, paws_df.model2, labels = ['cat', 'dog'], output_dict=True))
+#Recall = 0.890607
+
+                #Model 3
+pd.DataFrame(classification_report(paws_df.actual, paws_df.model3, labels = ['cat', 'dog'], output_dict=True))
+#Recall = 
+
+
+                #Model 4
+pd.DataFrame(classification_report(paws_df.actual, paws_df.model4, labels = ['cat', 'dog'], output_dict=True))
+#Precision = 0.807229
+
+
+
+
 
 
 
