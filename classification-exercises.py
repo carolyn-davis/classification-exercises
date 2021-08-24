@@ -207,5 +207,6 @@ gs_df.describe().T
 for column in gs_df.select_dtypes(include='object').columns:
     print(gs_df[column].value_counts())
     
+
     
-    
+
