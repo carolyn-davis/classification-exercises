@@ -264,3 +264,5 @@ print('Accuracy of KNN classifier on test set: {:.2f}'
 # =============================================================================
 # # 7.)Which model performs best on our out-of-sample data from validate?
 # =============================================================================
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.impute import KNNImputer
